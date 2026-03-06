@@ -1,0 +1,3058 @@
+{
+  "_readme": "Label corrections applied to the original LINCE SA dataset. Contains only the 763 samples where the label was changed during human relabeling. sample_id corresponds to the row index in the combined LINCE SA dataset (train + validation splits). See build_refined_dataset.py for reproduction instructions.",
+  "total_corrections": 763,
+  "label_mapping": {
+    "sample_20": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_30": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_32": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_43": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_58": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_77": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_78": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_87": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_91": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_96": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_101": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_102": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_121": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_134": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_135": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_182": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_183": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_187": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_212": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_223": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_241": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_248": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_275": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_295": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_308": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_326": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_328": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_338": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_350": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_353": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_356": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_357": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_358": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_375": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_442": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_450": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_483": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_491": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_507": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_508": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_525": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_528": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_530": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_538": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_557": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_567": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_605": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_607": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_621": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_656": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_672": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_673": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_732": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_752": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_753": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_770": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_774": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_803": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_811": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_825": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_830": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_844": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_850": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_872": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_875": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_889": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_894": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_897": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_900": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_903": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_904": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_920": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_943": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_946": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_960": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_982": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1021": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1028": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1055": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1062": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1067": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1083": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1110": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1112": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1120": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1139": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1145": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1149": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1154": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1210": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_1299": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1326": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_1372": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_1402": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1550": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1624": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1629": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1723": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1763": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1809": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1821": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1827": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1837": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1846": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1901": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1905": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1910": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1917": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1942": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1951": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1957": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1960": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1964": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1966": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1970": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1973": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1999": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_2038": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_2060": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_2067": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_2129": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_2183": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_2294": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_2301": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_2315": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_2323": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_2337": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_2358": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_2398": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_2411": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_2432": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_2435": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_2482": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_2544": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_2563": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_3148": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3184": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3332": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3381": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3477": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3508": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3544": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3620": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3713": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3720": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3808": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3842": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_3873": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3874": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_3891": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_4008": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4014": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_4018": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_4027": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4043": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4099": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4157": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4188": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_4194": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_4212": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_4235": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4296": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_4411": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4486": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4512": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4549": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_4551": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4562": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4622": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_4686": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4699": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_4709": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_4734": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_4739": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_4780": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_4967": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5022": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5026": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5027": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5115": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5122": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5147": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5158": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5185": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5257": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5260": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5268": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5287": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5310": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5325": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5331": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5336": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5339": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5344": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5355": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5356": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5377": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5396": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5398": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5403": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5413": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5415": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5442": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5505": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5523": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5532": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5554": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5569": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5581": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5583": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5603": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_5645": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5662": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5685": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5716": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_5742": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5775": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5795": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5807": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5809": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5834": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_5848": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5851": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_5856": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_5866": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_5868": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5909": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5961": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5962": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_5967": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5988": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5995": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_5999": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6021": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6063": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6077": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6089": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6128": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6139": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6144": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6157": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6166": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6167": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6189": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6202": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6204": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6240": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6249": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6258": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6261": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6268": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6270": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6282": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6293": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6297": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6302": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6303": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6304": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6306": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6308": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6312": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6333": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6347": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6357": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6373": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6374": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6380": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6381": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6384": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6392": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6394": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6403": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6408": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6410": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6411": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6420": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6446": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6453": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6458": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6464": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6466": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6472": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6475": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6477": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6479": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6486": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6491": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_6493": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6495": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6498": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6505": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6519": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6531": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6533": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6558": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6570": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6571": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6572": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6575": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6580": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6582": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6585": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6591": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6596": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6597": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6599": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6606": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6607": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6623": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6659": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6665": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6667": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6669": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6670": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6699": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6727": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6729": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_6732": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6745": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6764": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6767": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6775": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6784": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6802": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6806": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6814": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6860": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6883": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6890": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6897": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6899": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6911": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6922": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6923": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6924": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6931": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6944": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6945": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6957": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6959": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6972": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_6973": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_6984": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6987": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_6990": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_6994": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7008": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7016": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7017": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7018": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7019": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7023": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7024": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7026": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7054": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7073": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7074": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7079": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7080": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7085": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7097": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7108": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7111": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7126": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7129": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7142": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7169": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7174": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7188": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7197": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7205": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7245": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7266": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7267": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7268": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7272": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7294": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7317": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7332": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7374": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7378": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7397": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7404": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7455": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7458": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7485": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7486": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7487": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7494": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7496": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7506": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7509": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7514": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7520": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7527": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7533": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7535": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7541": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7543": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7559": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7566": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7578": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7594": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7599": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7600": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7601": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7615": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7628": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7629": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7632": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7651": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7674": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7696": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7713": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7714": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7715": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7716": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7727": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7733": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7756": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7763": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7792": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7831": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7832": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7845": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7847": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7848": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7865": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7869": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7879": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_7895": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7903": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7905": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7923": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7930": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_7933": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7935": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_7938": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_7941": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_7948": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_7992": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8008": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8036": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_8056": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8086": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8094": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8130": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8141": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8149": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_8171": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8202": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8273": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8302": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8342": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8368": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8399": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8416": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8420": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8426": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8433": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8458": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8461": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8464": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8552": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_8602": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_8615": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8641": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8679": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8774": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8795": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_8807": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8848": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8866": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8886": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_8894": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8930": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_8940": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_8945": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9014": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_9020": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9022": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_9027": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9047": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_9054": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9102": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9123": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9126": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9166": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9184": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9190": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9197": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9236": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9241": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9263": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9278": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_9299": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_9312": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9324": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9334": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9340": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9408": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9424": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9441": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9447": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9450": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9454": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9465": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9537": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9544": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9557": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9564": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9624": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_9675": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9702": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_9728": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9816": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9841": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9853": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9855": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9877": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_9889": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9890": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9894": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9913": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9916": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9928": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_9931": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_9947": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_9948": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9955": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_9992": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10026": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10030": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10067": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10073": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10139": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10140": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10153": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10179": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10185": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10194": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10209": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10218": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10263": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_10289": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10291": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10316": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10326": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10328": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10352": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_10356": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10357": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10370": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10394": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10399": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10406": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10411": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_10429": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10433": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10460": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10477": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10503": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10508": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10545": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_10556": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10571": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10572": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10579": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10586": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_10587": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10603": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_10630": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10645": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10681": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10683": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10723": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10737": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10779": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_10780": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10793": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10815": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10843": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10860": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10861": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10870": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_10886": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10936": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_10950": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_10983": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_11001": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11014": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11023": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_11083": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11092": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11118": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11134": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11143": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11148": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11151": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11191": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11236": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11258": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11269": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11331": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11332": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11346": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11355": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11362": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11364": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11374": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11376": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11385": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11389": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11399": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11406": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11434": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11444": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11448": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11456": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11470": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11475": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11498": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11501": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11502": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11508": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11533": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_11564": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11569": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11597": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11601": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11612": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11636": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11644": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11655": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11658": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_11659": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11663": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11664": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11666": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11671": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11687": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_11688": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11707": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11715": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11718": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11723": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11731": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11734": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11758": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11760": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11787": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11790": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11794": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11796": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11800": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11805": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11812": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11816": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11821": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11823": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11827": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11829": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11832": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11841": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11850": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11856": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11859": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_11861": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11862": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11873": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11876": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11884": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11893": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11894": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11898": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11900": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11902": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11903": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11904": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11921": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11922": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11934": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11942": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11949": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11957": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_11962": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_11976": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_11989": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12001": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_12002": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12032": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12036": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12041": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_12045": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_12046": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_12060": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12065": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_12066": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12068": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_12075": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_12082": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_12090": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_12123": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_12129": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_12131": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_12136": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_12157": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_12159": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_12165": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_12175": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_6": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_104": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_108": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_114": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_117": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_122": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_125": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_128": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_130": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_149": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_150": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_166": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_168": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_176": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_177": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_229": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_238": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_290": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_334": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_355": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_400": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_439": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_495": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_505": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_549": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_691": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_771": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_881": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_888": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_942": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1024": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1037": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_1053": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1117": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_1234": {
+      "original": "negative",
+      "corrected": "neutral"
+    },
+    "sample_1291": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1333": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1407": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1417": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1422": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1427": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1428": {
+      "original": "neutral",
+      "corrected": "negative"
+    },
+    "sample_1497": {
+      "original": "negative",
+      "corrected": "positive"
+    },
+    "sample_1593": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1650": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1656": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1681": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1752": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1757": {
+      "original": "positive",
+      "corrected": "neutral"
+    },
+    "sample_1786": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1828": {
+      "original": "positive",
+      "corrected": "negative"
+    },
+    "sample_1839": {
+      "original": "neutral",
+      "corrected": "positive"
+    },
+    "sample_1854": {
+      "original": "positive",
+      "corrected": "negative"
+    }
+  }
+}

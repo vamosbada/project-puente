@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Model checkpoints — too large for GitHub
+*.pt
+*.bin
+*.safetensors
+results/
+
+# Intermediate numpy arrays from the Late Fusion notebook
+*.npy
+
+# Refined Dataset output — generated locally by build_refined_dataset.py
+data/refined_dataset.json
+
+# Original LINCE data files — not redistributed
+data/lince_*.json
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
