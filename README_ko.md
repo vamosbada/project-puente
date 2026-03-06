@@ -9,6 +9,12 @@
 > **"스페인어-영어 코드스위칭 감성분석을 위한 재라벨링 접근법: 데이터 품질 개선의 영향 분석"**
 > KSC 2025 (한국소프트웨어종합학술대회) · 학부생논문경진대회 장려상
 
+*PUENTE*는 스페인어로 "다리(bridge)"를 뜻합니다 — 코드스위칭 분석을 통해 언어 간의 다리를 잇는다는 의미를 담았습니다.
+
+<p align="center">
+  <img src="docs/award.png" alt="KSC 2025 장려상" width="400"/>
+</p>
+
 ## 🔍 개요
 
 스페인어-영어 코드스위칭 감성분석의 표준 벤치마크인 LINCE SA 데이터셋에는 라벨링 오류가 존재합니다. 분석 결과 **전체 샘플의 17%가 잘못된 라벨**로 표기되어 있었습니다. 히스패닉-아메리칸 문화적 맥락에서 읽었을 때 원래 라벨이 실제 감성과 다른 경우가 대부분이었습니다.
@@ -32,7 +38,7 @@
 ## 🗂️ 데이터셋
 
 원본 LINCE SA 데이터셋은 Hugging Face에서 제공합니다:
-[`lince` / `sa_spaeng`](https://huggingface.co/datasets/lince)
+[`lince-benchmark/lince` / `sa_spaeng`](https://huggingface.co/datasets/lince-benchmark/lince)
 
 원본 텍스트는 재배포하지 않으며, 대신 다음 두 가지를 공개합니다:
 
@@ -137,8 +143,3 @@ jupyter notebook notebooks/
 - 지도: 단국대학교 컴퓨터공학과 김선오 교수님
 - 지원: 단국대학교 SW중심대학사업단
 
----
-
-<p align="center">
-  <img src="docs/award.png" alt="KSC 2025 장려상" width="400"/>
-</p>

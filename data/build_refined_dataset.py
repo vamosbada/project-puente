@@ -83,7 +83,7 @@ def build_refined_dataset():
     print(f"  {len(label_mapping)} corrections loaded")
 
     print("\nLoading LINCE SA dataset from Hugging Face ...")
-    dataset = load_dataset("lince", "sa_spaeng")
+    dataset = load_dataset("lince-benchmark/lince", "sa_spaeng")
 
     # Enumerate samples across train + validation, assigning global indices.
     # The global index becomes the sample_id (sample_<idx>).

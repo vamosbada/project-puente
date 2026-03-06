@@ -2,13 +2,19 @@
 
 # Project PUENTE — Relabeling for Spanish-English Code-Switching Sentiment Analysis
 
-[![KSC 2025](https://img.shields.io/badge/KSC_2025-Encouragement_Award-gold)](docs/paper.pdf)
+[![KSC 2025](https://img.shields.io/badge/KSC_2025-Honorable_Mention-gold)](docs/paper.pdf)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 > **"A Relabeling Approach for Spanish-English Code-Switching Sentiment Analysis:
 > Impact Analysis of Data Quality Improvement"**
-> KSC 2025 (Korean Software Congress) · Encouragement Award, Undergraduate Division
+> KSC 2025 (Korean Software Congress) · Honorable Mention, Undergraduate Division
+
+*PUENTE* means "bridge" in Spanish — reflecting the goal of bridging languages through code-switching analysis.
+
+<p align="center">
+  <img src="docs/award.png" alt="KSC 2025 Honorable Mention" width="400"/>
+</p>
 
 ## 🔍 Overview
 
@@ -33,7 +39,7 @@ This project takes a **data-centric approach**: instead of building a more compl
 ## 🗂️ Dataset
 
 The original LINCE SA dataset is available on Hugging Face:
-[`lince` / `sa_spaeng`](https://huggingface.co/datasets/lince)
+[`lince-benchmark/lince` / `sa_spaeng`](https://huggingface.co/datasets/lince-benchmark/lince)
 
 We do not redistribute the original text. Instead, we release:
 
@@ -155,8 +161,3 @@ jupyter notebook notebooks/
 - Supported by the SW-oriented University Program (SW중심대학사업)
 - Original LINCE dataset: [LinCE Benchmark](https://ritual.uh.edu/lince/)
 
----
-
-<p align="center">
-  <img src="docs/award.png" alt="KSC 2025 Encouragement Award" width="400"/>
-</p>
