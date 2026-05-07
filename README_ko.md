@@ -3,6 +3,7 @@
 # Project PUENTE — 스페인어-영어 코드스위칭 감성분석을 위한 재라벨링 접근법
 
 [![KSC 2025](https://img.shields.io/badge/KSC_2025-장려상-gold)](docs/paper.pdf)
+[![HF Dataset](https://img.shields.io/badge/🤗_Dataset-badashin%2Flince--sa--refined-yellow)](https://huggingface.co/datasets/badashin/lince-sa-refined)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 

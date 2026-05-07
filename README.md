@@ -3,6 +3,7 @@
 # Project PUENTE — Relabeling for Spanish-English Code-Switching Sentiment Analysis
 
 [![KSC 2025](https://img.shields.io/badge/KSC_2025-Honorable_Mention-gold)](docs/paper.pdf)
+[![HF Dataset](https://img.shields.io/badge/🤗_Dataset-badashin%2Flince--sa--refined-yellow)](https://huggingface.co/datasets/badashin/lince-sa-refined)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 

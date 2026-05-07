@@ -1,41 +1,44 @@
 """
 build_refined_dataset.py
 
-Reproduces the Refined Dataset used in the paper:
-"A Relabeling Approach for Spanish-English Code-Switching Sentiment Analysis:
- Impact Analysis of Data Quality Improvement" (KSC 2025)
+Reproduces the Refined Dataset described in the paper:
+"Re-labeling Approach for Spanish-English Code-switching Sentiment Analysis:
+ Impact of Data Quality Improvement" (KSC 2025, Honorable Mention)
 
-The original LINCE SA dataset contains labeling errors (~17% error rate).
-This script applies our human-verified label corrections (label_mapping.json)
-to reconstruct the Refined Dataset (5,567 samples) from the original source.
+This script loads the original LINCE SA (sa_spaeng) split from Hugging Face,
+applies the human-verified label refinements in label_mapping.json, and writes
+the resulting refined dataset (5,567 samples) to refined_dataset.json.
 
 Usage:
     python build_refined_dataset.py
 
 Output:
-    refined_dataset.json  — corrected dataset ready for model training
+    refined_dataset.json — the refined dataset, ready for downstream training
 """
 
 import json
 import os
 from collections import Counter
 
-# The original LINCE SA dataset is available on Hugging Face.
+# The original LINCE SA dataset is loaded via Hugging Face datasets.
 # Install with: pip install datasets
 from datasets import load_dataset
 
 
-# Label encoding used throughout the paper
-LABEL2ID = {"positive": 0, "negative": 1, "neutral": 2}
-ID2LABEL = {0: "positive", 1: "negative", 2: "neutral"}
-
-# Splits used to build the preprocessed dataset (test split excluded)
+# Splits used to build the refined dataset.
+# The test split is excluded because LINCE SA does not provide gold
+# sentiment labels for the test split.
 SPLITS_TO_USE = ["train", "validation"]
+
+# LINCE SA returns the sentiment label as a string from this set.
+VALID_LABELS = {"positive", "neutral", "negative"}
 
 
 def load_label_mapping(path="label_mapping.json"):
-    """Load the human-verified label corrections."""
-    mapping_path = os.path.join(os.path.dirname(__file__), path)
+    """Load the human-verified label refinements."""
+    mapping_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), path
+    )
     with open(mapping_path, "r", encoding="utf-8") as f:
         raw = json.load(f)
     return raw["label_mapping"]
@@ -43,51 +46,39 @@ def load_label_mapping(path="label_mapping.json"):
 
 def is_code_switched(lid_labels, min_tokens_per_lang=2):
     """
-    Check whether a sample contains genuine Spanish-English code-switching.
-
-    Criteria (matching the original preprocessing):
-    - Must contain both lang1 (English) and lang2 (Spanish) tokens
-    - Each language must have at least min_tokens_per_lang tokens
+    A sample is treated as genuine Spanish-English code-switching when both
+    lang1 (English) and lang2 (Spanish) have at least min_tokens_per_lang
+    tokens.
     """
     counts = Counter(lid_labels)
-    return counts.get("lang1", 0) >= min_tokens_per_lang and \
-           counts.get("lang2", 0) >= min_tokens_per_lang
-
-
-def normalize_label(raw_label):
-    """Map LINCE integer labels to sentiment strings."""
-    # LINCE SA labels: 0=positive, 1=negative, 2=neutral
-    if isinstance(raw_label, int):
-        return ID2LABEL.get(raw_label)
-    if isinstance(raw_label, str):
-        label = raw_label.lower()
-        if label in LABEL2ID:
-            return label
-    return None
+    return (
+        counts.get("lang1", 0) >= min_tokens_per_lang
+        and counts.get("lang2", 0) >= min_tokens_per_lang
+    )
 
 
 def build_refined_dataset():
     """
-    Main function to build the Refined Dataset.
-
-    Steps:
-    1. Load LINCE SA from Hugging Face
-    2. Filter for genuine code-switching samples
-    3. Assign sample IDs (sample_<global_index>)
-    4. Apply label corrections from label_mapping.json
-    5. Remove samples with duplicate IDs (unreliable annotations)
-    6. Save to refined_dataset.json
+    1. Load LINCE SA (sa_spaeng) from Hugging Face
+    2. Filter for genuine code-switching samples (both languages, >=2 tokens each)
+    3. Assign global sample_ids that align with label_mapping.json
+    4. Apply human-verified label refinements
+    5. Drop samples whose sample_id appears in more than one split
+    6. Write refined_dataset.json
     """
-    print("Loading label corrections from label_mapping.json ...")
+    print("Loading label refinements from label_mapping.json ...")
     label_mapping = load_label_mapping()
-    print(f"  {len(label_mapping)} corrections loaded")
+    print(f"  {len(label_mapping)} refinements loaded\n")
 
-    print("\nLoading LINCE SA dataset from Hugging Face ...")
-    dataset = load_dataset("lince-benchmark/lince", "sa_spaeng")
+    print("Loading LINCE SA from Hugging Face ...")
+    dataset = load_dataset(
+        "lince-benchmark/lince", "sa_spaeng",
+        trust_remote_code=True,
+    )
 
     # Enumerate samples across train + validation, assigning global indices.
     # The global index becomes the sample_id (sample_<idx>).
-    # This matches the ID scheme used in the original preprocessing pipeline.
+    # This ID scheme is what label_mapping.json keys reference.
     all_samples = []
     global_idx = 0
 
@@ -99,66 +90,64 @@ def build_refined_dataset():
             sample_id = f"sample_{global_idx}"
             global_idx += 1
 
-            words = row["words"]
-            lid = row["lid"]
-            raw_label = row["sa"]
-
-            # Skip samples that are not genuine code-switching
-            if not is_code_switched(lid):
+            sentiment = row["sa"]
+            if sentiment not in VALID_LABELS:
+                continue
+            if not is_code_switched(row["lid"]):
                 continue
 
-            sentiment = normalize_label(raw_label)
-            if sentiment is None:
-                continue
-
-            # Apply human-verified correction if available
+            # Apply a refinement when one is recorded for this sample_id.
             original_sentiment = sentiment
             if sample_id in label_mapping:
-                correction = label_mapping[sample_id]
-                # Sanity check: original label should match
-                if correction["original"] == sentiment:
-                    sentiment = correction["corrected"]
+                ref = label_mapping[sample_id]
+                # Sanity guard: only apply when the source label still
+                # matches the recorded original.
+                if ref["original"] == sentiment:
+                    sentiment = ref["corrected"]
 
             all_samples.append({
                 "id": sample_id,
-                "text": " ".join(words),
-                "tokens": words,
-                "lid_labels": lid,
+                "text": " ".join(row["words"]),
+                "tokens": row["words"],
+                "lid_labels": row["lid"],
                 "sentiment": sentiment,
                 "original_sentiment": original_sentiment,
-                "label_corrected": sentiment != original_sentiment,
+                "label_refined": sentiment != original_sentiment,
             })
 
     print(f"\nCode-switched samples collected: {len(all_samples)}")
 
-    # Remove samples with duplicate IDs across splits.
-    # Duplicates indicate the same sentence appearing in multiple splits,
-    # making the label ambiguous — these are excluded from the Refined Dataset.
+    # Drop samples whose sample_id is shared across splits, to avoid
+    # ambiguous labels in the final set.
     id_counts = Counter(s["id"] for s in all_samples)
-    duplicate_ids = {sid for sid, count in id_counts.items() if count > 1}
-    print(f"Duplicate sample IDs removed: {len(duplicate_ids)}")
+    duplicate_ids = {sid for sid, c in id_counts.items() if c > 1}
+    print(f"Cross-split duplicate IDs removed: {len(duplicate_ids)}")
 
     refined = [s for s in all_samples if s["id"] not in duplicate_ids]
-    print(f"Refined Dataset size: {len(refined)}")
+    print(f"Refined dataset size: {len(refined)}")
 
-    # Label distribution
     dist = Counter(s["sentiment"] for s in refined)
-    print(f"\nLabel distribution:")
+    print("\nLabel distribution:")
     for label, count in sorted(dist.items()):
-        print(f"  {label}: {count} ({count/len(refined)*100:.1f}%)")
+        print(f"  {label}: {count} ({count / len(refined) * 100:.1f}%)")
 
-    corrections_applied = sum(1 for s in refined if s["label_corrected"])
-    print(f"\nLabel corrections applied: {corrections_applied}")
+    refinements_applied = sum(1 for s in refined if s["label_refined"])
+    print(f"\nLabel refinements applied: {refinements_applied}")
 
-    # Save output
-    output_path = os.path.join(os.path.dirname(__file__), "refined_dataset.json")
+    output_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "refined_dataset.json",
+    )
     output = {
         "metadata": {
-            "dataset": "LINCE SA Refined Dataset",
-            "source": "load_dataset('lince', 'sa_spaeng') — Hugging Face",
-            "paper": "A Relabeling Approach for Spanish-English Code-Switching SA (KSC 2025)",
+            "dataset": "LINCE SA Refined (Spanish-English Sentiment)",
+            "source": "lince-benchmark/lince [sa_spaeng] via Hugging Face",
+            "paper": (
+                "Re-labeling Approach for Spanish-English Code-switching "
+                "Sentiment Analysis (KSC 2025)"
+            ),
             "total_samples": len(refined),
-            "label_corrections_applied": corrections_applied,
+            "label_refinements_applied": refinements_applied,
             "label_distribution": dict(dist),
         },
         "data": refined,
