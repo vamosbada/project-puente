@@ -162,7 +162,8 @@ cd data && python build_refined_dataset.py && cd ..
   chosen by looking at that validation set.
 - **67.15% evaluates the meta-learner on its own training data.** The MLP meta-learner was trained on the
   validation-set logits and evaluated on the same set. The logits of that run were later overwritten,
-  so it cannot be re-checked directly.
+  so it cannot be re-checked directly. [`docs/experiment_log.md`](docs/experiment_log.md) records that re-running
+  the Experiment 29 settings reproduced 67.15% exactly (with the same evaluation method).
 - **Cross-validated check on a comparable run.** Using the saved logits of Experiment 34 (same
   architecture, XLM-R lr 2e-5, 6 epochs; 65.71% with the original method), 5-fold stratified CV gives
   65.17% ± 3.81%. Across 5 fold seeds the gap to the original method is about **0.5–1 pp (0.4–1.1 pp)**.
@@ -170,6 +171,9 @@ cd data && python build_refined_dataset.py && cd ..
 - **The ensemble gain comes from training the MLP.** Under CV the ensemble still beats XLM-R solo by about
   +1–1.5 pp (+1.4 pp at fold seed 42), whereas a simple average of the two models' softmax outputs (62.12%)
   is *below* XLM-R solo (63.73%).
+- **56.6% and 60.6% are not measured on the identical validation set.** Removing duplicate IDs during
+  refinement changed the dataset, so the baseline uses 1,264 validation samples and the Refined Dataset
+  run uses 1,114.
 - **Small validation set.** With 1,114 validation samples (~223 per fold), fold-to-fold variance is large
   (standard deviation up to ~3.8 pp).
 
