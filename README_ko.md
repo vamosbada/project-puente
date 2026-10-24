@@ -149,8 +149,8 @@ cd data && python build_refined_dataset.py && cd ..
   기록이 있습니다 (같은 평가 방식 기준).
 - **비슷한 실행으로 교차검증했습니다.** 실험 34(같은 구조, XLM-R lr 2e-5, 6 에포크; 원래 방식으로 65.71%)의
   저장된 로짓으로 5-fold stratified CV를 하면 65.17% ± 3.81%입니다. fold seed 5개 기준으로 원래 방식과의 차이는
-  **약 0.5~1%p (0.4~1.1%p)** 입니다. 자세한 내용: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/)
-- **앙상블 효과는 MLP 학습에서 나옵니다.** CV 기준으로도 앙상블은 XLM-R 단독보다 약 +1~1.5%p
+  **약 0.5–1%p (0.4–1.1%p)** 입니다. 자세한 내용: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/)
+- **앙상블 효과는 MLP 학습에서 나옵니다.** CV 기준으로도 앙상블은 XLM-R 단독보다 약 +1–1.5%p
   (fold seed 42 기준 +1.4%p) 높지만, 두 모델의 softmax 출력을 단순 평균하면(62.12%) XLM-R 단독(63.73%)보다 낮습니다.
 - **56.6%와 60.6%는 완전히 같은 검증 세트에서 비교한 값이 아닙니다.** 정제 과정에서 중복 ID를 제거해 데이터셋
   구성이 달라졌기 때문에, 베이스라인은 검증 샘플 1,264개, Refined Dataset 실행은 1,114개를 사용했습니다.
