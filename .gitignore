@@ -26,6 +26,8 @@ results/
 
 # Intermediate numpy arrays from the Late Fusion notebook
 *.npy
+# ...except the saved logits used for the meta-learner re-evaluation
+!experiments/meta_learner_cv/*.npy
 
 # Refined Dataset output — generated locally by build_refined_dataset.py
 data/refined_dataset.json

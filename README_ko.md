@@ -26,7 +26,7 @@
 - LINCE SA 벤치마크의 17% 라벨링 오류율 발견 및 문서화
 - 인간 검증 라벨을 적용한 5,567개 Refined Dataset 구축 (763개 수정)
 - 데이터 정제만으로 +4.0%p 정확도 향상 — 9번의 멀티태스크 학습 실험을 모두 상회
-- mBERT + XLM-R Late Fusion 앙상블로 최종 67.15% 달성
+- mBERT + XLM-R Late Fusion 앙상블로 최종 67.15% 달성 — 검증 세트 기준, [한계](#limitations) 참고
 
 ## 📊 핵심 성과
 
@@ -34,7 +34,18 @@
 |---|---|---|---|
 | 베이스라인 | mBERT (원본 라벨) | 56.6% | — |
 | 데이터 중심 | mBERT (Refined Dataset) | 60.6% | +4.0%p |
-| 최종 | Late Fusion 앙상블 | **67.15%** | **+10.55%p** |
+| 최종 | Late Fusion 앙상블 | **67.15%**\* | **+10.55%p** |
+
+\* 메타러너를 같은 검증 세트로 학습하고 평가한 값입니다. 비슷한 실행으로 교차검증한 결과는
+[한계](#limitations)에 있습니다.
+
+**수치별 근거 노트북** — 노트북은 결과 출력이 남아 있는 원본 Colab 실행 기록입니다:
+
+| 논문 수치 | 노트북 | 실험 |
+|---|---|---|
+| 56.6% | [`notebooks/01_baseline_mbert.ipynb`](notebooks/01_baseline_mbert.ipynb) | 실험 1 |
+| 60.6% | [`notebooks/02_refined_dataset_mbert.ipynb`](notebooks/02_refined_dataset_mbert.ipynb) | 실험 11 |
+| 67.15% | [`notebooks/03_late_fusion_ensemble.ipynb`](notebooks/03_late_fusion_ensemble.ipynb) | 실험 29 |
 
 ## 🗂️ 데이터셋
 
@@ -95,31 +106,51 @@ LINCE SA는 히스패닉-아메리칸 영어에 대한 명확한 문화적 가�
 
 ## ⚡ 재현 방법
 
-**요구 사항:** Python 3.10 이상, CUDA GPU 권장 (Google Colab Pro 환경에서 테스트)
+**`notebooks/`에 있는 것:** 논문 수치를 만든 원본 Google Colab 노트북을 실행 기록으로 보존했습니다.
+코드와 결과는 그대로이며, 다운로드 진행바·Drive 마운트 메시지·라이브러리 경고만 출력에서 지우고
+맨 위에 영어 개요 셀을 추가했습니다. 코드 주석은 한국어입니다.
+
+**바로 재현할 수 있는 것**
+
+| 대상 | 방법 | GPU |
+|---|---|---|
+| Refined Dataset (5,567개) | `cd data && python build_refined_dataset.py` | 불필요 |
+| 메타러너 재검증 (65.71%, CV, softmax 평균) | [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/) 참고 | 불필요 |
+| 모델 학습 (노트북 01–03) | 아래 참고 | 필요 |
+
+**노트북을 다시 돌리려면** Colab + Google Drive 기준으로 작성되어 있어 몇 가지를 바꿔야 합니다:
+- 데이터를 Google Drive 경로(`/content/drive/...`)에서 읽습니다. 로컬 경로로 바꿔 주세요.
+- 노트북 01은 `lince_sa_preprocessed.json`(6,319개, 원본 라벨)을 읽는데, 이 파일은 레포에 없습니다.
+- 노트북 02, 03은 `lince_sa_golden_cleaned.json`을 읽습니다. `data/build_refined_dataset.py`는
+  Hugging Face에서 Refined Dataset을 만들지만, 텍스트를 `cleaned_text`가 아닌 `text` 필드에 저장합니다.
+  두 파일이 완전히 같은지는 확인하지 않았습니다.
+- 데이터와 시드가 같아도 GPU 연산 특성상 정확도가 ±1%p 정도 달라질 수 있습니다.
+
+**요구 사항:** Python 3.10 이상, 모델 학습에는 CUDA GPU 필요 (원래 Google Colab Pro T4 환경에서 실행)
 
 ```bash
-# 1. 레포지토리 클론
 git clone https://github.com/vamosbada/project-puente.git
 cd project-puente
-
-# 2. 의존성 설치
 pip install -r requirements.txt
-
-# 3. Refined Dataset 생성
 cd data && python build_refined_dataset.py && cd ..
-
-# 4. 노트북 실행
-jupyter notebook notebooks/
 ```
 
-**노트북 실행 순서:**
-1. `01_baseline_mbert.ipynb` — 56.6% 베이스라인 (Hugging Face에서 직접 로드)
-2. `02_refined_dataset_mbert.ipynb` — `data/refined_dataset.json` 필요
-3. `03_late_fusion_ensemble.ipynb` — `data/refined_dataset.json` 필요
+**기록된 학습 시간 (T4 GPU, Colab Pro):** 01 약 16분, 02 약 13분, 03의 mBERT 약 13분
+(03의 XLM-R 학습 출력은 남아 있지 않습니다).
 
-**예상 소요 시간 (T4 GPU 기준):**
-- 노트북 01, 02: 각 30–40분
-- 노트북 03: 90–120분 (두 모델 순차 학습)
+<a id="limitations"></a>
+## ⚠️ 한계
+
+- **모든 수치는 자체 검증 세트 기준입니다.** LinCE는 테스트 세트 라벨을 공개하지 않아, 이 레포의 모든 정확도는
+  층화 추출한 20% 검증 세트에서 측정했고, 하이퍼파라미터도 이 검증 세트를 보고 골랐습니다.
+- **67.15%는 메타러너를 학습 데이터로 평가한 값입니다.** MLP 메타러너를 검증 세트 로짓으로 학습하고 같은 세트로
+  평가했습니다. 해당 실행의 로짓은 이후 실행에 덮어써져 직접 재검증할 수 없습니다.
+- **비슷한 실행으로 교차검증했습니다.** 실험 34(같은 구조, XLM-R lr 2e-5, 6 에포크; 원래 방식으로 65.71%)의
+  저장된 로짓으로 5-fold stratified CV를 하면 65.17% ± 3.81%입니다. fold seed 5개 기준으로 원래 방식과의 차이는
+  **약 0.5~1%p (0.4~1.1%p)** 입니다. 자세한 내용: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/)
+- **앙상블 효과는 MLP 학습에서 나옵니다.** CV 기준으로도 앙상블은 XLM-R 단독보다 약 +1~1.5%p
+  (fold seed 42 기준 +1.4%p) 높지만, 두 모델의 softmax 출력을 단순 평균하면(62.12%) XLM-R 단독(63.73%)보다 낮습니다.
+- **검증 세트가 작습니다.** 검증 샘플이 1,114개(fold당 약 223개)라 fold 간 편차가 큽니다 (표준편차 최대 약 3.8%p).
 
 ## 📄 인용
 

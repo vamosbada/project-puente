@@ -27,7 +27,7 @@ This project takes a **data-centric approach**: instead of building a more compl
 - Identified and documented a 17% labeling error rate in the LINCE SA benchmark
 - Built a 5,567-sample Refined Dataset with human-verified labels (763 corrections)
 - Showed +4.0 pp accuracy gain from data cleaning alone, exceeding 9 multi-task learning experiments
-- Achieved 67.15% accuracy with a Late Fusion ensemble (mBERT + XLM-R)
+- Achieved 67.15% accuracy with a Late Fusion ensemble (mBERT + XLM-R) — validation set; see [Limitations](#limitations)
 
 ## 📊 Key Results
 
@@ -35,7 +35,18 @@ This project takes a **data-centric approach**: instead of building a more compl
 |---|---|---|---|
 | Baseline | mBERT (original labels) | 56.6% | — |
 | Data-Centric | mBERT (Refined Dataset) | 60.6% | +4.0 pp |
-| Final | Late Fusion Ensemble | **67.15%** | **+10.55 pp** |
+| Final | Late Fusion Ensemble | **67.15%**\* | **+10.55 pp** |
+
+\* The meta-learner was trained and evaluated on the same validation set. A cross-validated check
+on a comparable run is in [Limitations](#limitations).
+
+**Where each number comes from** — the notebooks are the original Colab run records, with outputs:
+
+| Paper number | Notebook | Experiment |
+|---|---|---|
+| 56.6% | [`notebooks/01_baseline_mbert.ipynb`](notebooks/01_baseline_mbert.ipynb) | Exp. 1 |
+| 60.6% | [`notebooks/02_refined_dataset_mbert.ipynb`](notebooks/02_refined_dataset_mbert.ipynb) | Exp. 11 |
+| 67.15% | [`notebooks/03_late_fusion_ensemble.ipynb`](notebooks/03_late_fusion_ensemble.ipynb) | Exp. 29 |
 
 ## 🗂️ Dataset
 
@@ -110,31 +121,57 @@ that stronger foundation.
 
 ## ⚡ Reproduction
 
-**Requirements:** Python 3.10+, CUDA GPU recommended (tested on Google Colab Pro)
+**What is in `notebooks/`:** the original Google Colab notebooks that produced the paper's numbers,
+kept as run records. Code and outputs are unchanged; only download progress bars, Drive mount
+messages and library warnings were removed, and an English overview cell was added at the top.
+Code comments are in Korean.
+
+**What you can reproduce directly**
+
+| What | How | GPU |
+|---|---|---|
+| Refined Dataset (5,567 samples) | `cd data && python build_refined_dataset.py` | No |
+| Meta-learner re-evaluation (65.71%, CV, softmax average) | See [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/) | No |
+| Model training (notebooks 01–03) | See below | Yes |
+
+**Re-running the notebooks** requires a few changes, because they were written for Colab with Google Drive:
+- They read data from Google Drive paths (`/content/drive/...`). Change these to local paths.
+- Notebook 01 reads `lince_sa_preprocessed.json` (6,319 samples, original labels), which is not in this repo.
+- Notebooks 02 and 03 read `lince_sa_golden_cleaned.json`. `data/build_refined_dataset.py` builds the
+  Refined Dataset from Hugging Face, but stores the text in a `text` field instead of `cleaned_text`.
+  We have not verified that the two files are byte-for-byte identical.
+- Even with identical data and seeds, GPU non-determinism can shift accuracy by around ±1 pp.
+
+**Requirements:** Python 3.10+, CUDA GPU for model training (originally run on Google Colab Pro, T4)
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/vamosbada/project-puente.git
 cd project-puente
-
-# 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Build the Refined Dataset
 cd data && python build_refined_dataset.py && cd ..
-
-# 4. Run notebooks in order
-jupyter notebook notebooks/
 ```
 
-**Notebook order:**
-1. `01_baseline_mbert.ipynb` — establishes the 56.6% baseline (uses Hugging Face directly)
-2. `02_refined_dataset_mbert.ipynb` — requires `data/refined_dataset.json`
-3. `03_late_fusion_ensemble.ipynb` — requires `data/refined_dataset.json`
+**Recorded training times (T4 GPU, Colab Pro):** ~16 min (01), ~13 min (02), ~13 min for mBERT in 03
+(the XLM-R training output in 03 was not preserved).
 
-**Expected runtimes (on a single T4 GPU):**
-- Notebooks 01 & 02: ~30–40 minutes each
-- Notebook 03: ~90–120 minutes (trains two models sequentially)
+<a id="limitations"></a>
+## ⚠️ Limitations
+
+- **All numbers are on our own validation split.** LinCE does not release test-set labels, so every
+  accuracy in this repo is measured on a stratified 20% validation split, and hyperparameters were also
+  chosen by looking at that validation set.
+- **67.15% evaluates the meta-learner on its own training data.** The MLP meta-learner was trained on the
+  validation-set logits and evaluated on the same set. The logits of that run were later overwritten,
+  so it cannot be re-checked directly.
+- **Cross-validated check on a comparable run.** Using the saved logits of Experiment 34 (same
+  architecture, XLM-R lr 2e-5, 6 epochs; 65.71% with the original method), 5-fold stratified CV gives
+  65.17% ± 3.81%. Across 5 fold seeds the gap to the original method is about **0.5–1 pp (0.4–1.1 pp)**.
+  Details: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/).
+- **The ensemble gain comes from training the MLP.** Under CV the ensemble still beats XLM-R solo by about
+  +1–1.5 pp (+1.4 pp at fold seed 42), whereas a simple average of the two models' softmax outputs (62.12%)
+  is *below* XLM-R solo (63.73%).
+- **Small validation set.** With 1,114 validation samples (~223 per fold), fold-to-fold variance is large
+  (standard deviation up to ~3.8 pp).
 
 ## 📄 Citation
 
