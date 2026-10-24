@@ -26,7 +26,7 @@ This project takes a **data-centric approach**: instead of building a more compl
 **Core contributions:**
 - Identified and documented a 17% labeling error rate in the LINCE SA benchmark
 - Built a 5,567-sample Refined Dataset with human-verified labels (763 corrections)
-- Showed +4.0 pp accuracy gain from data cleaning alone, exceeding 9 multi-task learning experiments
+- Showed +4.0 pp accuracy gain from data cleaning alone, exceeding 9 multi-task learning experiments on the original labels
 - Achieved 67.15% accuracy with a Late Fusion ensemble (mBERT + XLM-R) — validation set; see [Limitations](#limitations)
 
 ## 📊 Key Results
@@ -44,7 +44,7 @@ on a comparable run is in [Limitations](#limitations).
 
 | Paper number | Notebook | Experiment |
 |---|---|---|
-| 56.6% | [`notebooks/01_baseline_mbert.ipynb`](notebooks/01_baseline_mbert.ipynb) | Exp. 1 |
+| 56.6% | [`notebooks/01_baseline_mbert.ipynb`](notebooks/01_baseline_mbert.ipynb) | Baseline |
 | 60.6% | [`notebooks/02_refined_dataset_mbert.ipynb`](notebooks/02_refined_dataset_mbert.ipynb) | Exp. 11 |
 | 67.15% | [`notebooks/03_late_fusion_ensemble.ipynb`](notebooks/03_late_fusion_ensemble.ipynb) | Exp. 29 |
 
@@ -108,14 +108,14 @@ Full details are in [`docs/experiment_log.md`](docs/experiment_log.md).
 
 | Phase | Experiments | Direction | Outcome |
 |---|---|---|---|
-| 1 | Exp. 1 | mBERT baseline | **56.6%** — reference point |
-| 2 | Exp. 2–9, 15–19 | Multi-task learning (hard sharing + adapters) | All failed; negative transfer confirmed |
+| 1 | Baseline | mBERT baseline | **56.6%** — reference point |
+| 2 | Exp. 1–9, 15–19 | Multi-task learning (hard sharing + adapters) | All failed; negative transfer confirmed |
 | 3 | Exp. 10, 20–28 | Enhanced single-task (2-layer head, tuning) | **61.49%** peak — marginal gain |
 | 4 | Exp. 11–14 | Data-centric: Refined Dataset | **60.6%** — beats all MTL approaches |
 | 5 | Exp. 29–34 | Late Fusion ensemble | **67.15%** — final result |
 
 **The central finding:** After exhausting model-centric approaches (9 multi-task learning
-experiments, 10 architecture/hyperparameter experiments), switching to data quality
+experiments on the original labels, 10 architecture/hyperparameter experiments), switching to data quality
 improvement produced the largest single jump (+4.0 pp). The ensemble then built on
 that stronger foundation.
 
@@ -176,6 +176,10 @@ cd data && python build_refined_dataset.py && cd ..
   run uses 1,114.
 - **Small validation set.** With 1,114 validation samples (~223 per fold), fold-to-fold variance is large
   (standard deviation up to ~3.8 pp).
+- **The paper misstates the metric and two ensemble settings.** The paper says it uses weighted F1, but every
+  number in it (56.6%, 60.6%, 67.15%) is accuracy, as the notebooks show. Its training settings list mBERT lr 1e-5
+  and XLM-R 6 epochs; 1e-5 matches notebooks 01–02, but the 67.15% run (notebook 03) used mBERT lr 5e-6 and
+  5 epochs for both models. Weighted F1 shows the same trend (0.56 → 0.61 → 0.65).
 
 ## 📄 Citation
 
