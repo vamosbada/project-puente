@@ -19,15 +19,19 @@
 
 ## 🔍 Overview
 
-The LINCE SA benchmark is the standard dataset for Spanish-English code-switching sentiment analysis, but its labels are noisy. We found that **17% of samples contain annotation errors** — cases where the original label does not match the sentiment expressed in the tweet when read with Hispanic-American cultural context in mind.
+LINCE SA is the standard benchmark for Spanish-English code-switching sentiment analysis, but its labels are noisy.
+In a manual audit of 100 random samples, **17 were mislabeled**, and 65% of those errors were Positive ↔ Neutral
+confusions — often tweets whose sentiment is clear once you read them with Hispanic cultural context.
 
-This project takes a **data-centric approach**: instead of building a more complex model, we manually reviewed and corrected the labels, constructed a 5,567-sample Refined Dataset, and showed that data quality improvements alone outperform every architectural change we tried.
+This is a **data-centric** project, done as a second-year undergraduate. Instead of building a more complex model,
+I reviewed and corrected the labels myself, built a 5,567-sample Refined Dataset, and showed that cleaning the labels
+helped more than any of the multi-task architectures I had tried.
 
 **Core contributions:**
-- Identified and documented a 17% labeling error rate in the LINCE SA benchmark
-- Built a 5,567-sample Refined Dataset with human-verified labels (763 corrections)
-- Showed +4.0 pp accuracy gain from data cleaning alone, exceeding 9 multi-task learning experiments on the original labels
-- Achieved 67.15% accuracy with a Late Fusion ensemble (mBERT + XLM-R) — validation set; see [Limitations](#limitations)
+- Found a 17% label error rate in LINCE SA (estimated from a 100-sample audit)
+- Built a 5,567-sample Refined Dataset by hand (763 labels corrected)
+- Relabeling alone raised accuracy by 4.0 pp — more than any of the 9 multi-task experiments on the original labels
+- Reached 67.15% accuracy with a late-fusion ensemble (mBERT + XLM-R) on the validation set — see [Limitations](#limitations)
 
 ## 📊 Key Results
 
@@ -53,7 +57,7 @@ on a comparable run is in [Limitations](#limitations).
 The original LINCE SA dataset is available on Hugging Face:
 [`lince-benchmark/lince` / `sa_spaeng`](https://huggingface.co/datasets/lince-benchmark/lince)
 
-We do not redistribute the original text. Instead, we release:
+I do not redistribute the original text. Instead, this repo includes:
 
 - **`data/label_mapping.json`** — 763 corrected labels in `{sample_id: {original, corrected}}` format
 - **`data/build_refined_dataset.py`** — reproduces the Refined Dataset from the Hugging Face source
@@ -66,17 +70,17 @@ python build_refined_dataset.py
 ```
 
 **What was corrected and why:**
-The LINCE SA dataset was annotated without explicit cultural guidelines for
-Hispanic-American English. Many tweets use Spanish words or expressions that carry
-positive connotations in that cultural context (e.g., references to food, family,
-music) but were labeled as neutral or negative. We re-annotated these with a
-consistent cultural framework.
+LINCE SA was annotated without explicit guidelines for Hispanic cultural context.
+Many tweets use Spanish words or expressions that are clearly positive in that context
+(e.g., about food, family, or music) but were labeled neutral or negative.
+I relabeled them using the same criteria throughout. Of the 763 corrections, the most common were
+Positive → Neutral (194), Neutral → Positive (156), Neutral → Negative (133), and Positive → Negative (114).
 
 ## 🏗️ Architecture
 
-The final model combines mBERT and XLM-R via **Late Fusion**: each model is trained
-independently, then their output probability distributions are concatenated and passed
-to a small MLP meta-learner.
+The final model combines mBERT and XLM-R with **late fusion**: each model is trained
+separately, then their raw output logits (3 + 3) are concatenated and fed to a small
+MLP meta-learner.
 
 ```
          Refined Dataset (5,567 samples)
@@ -95,29 +99,29 @@ to a small MLP meta-learner.
               final prediction
 ```
 
-**Key design insight:** mBERT is trained with a deliberately low learning rate (`5e-6`),
-which lowers its solo accuracy but increases its prediction diversity relative to XLM-R.
-Experiments showed that individually optimized models (higher solo accuracy) actually
-*reduced* ensemble performance — the ensemble benefits more from complementary errors
-than from raw individual strength.
+**What I observed:** mBERT was trained with a low learning rate (`5e-6`), which lowers its
+solo accuracy (57.36% vs 61.04% for XLM-R). When I switched to settings that favored each model's own
+accuracy (a higher mBERT learning rate and/or accuracy-based early stopping, Exp. 30 and 32), the ensemble dropped to 66.16% and 66.25%. My reading was that the ensemble gains more
+from the two models making *different* errors than from each model being strong. This is an
+observation from single runs, not a proven effect — see [Limitations](#limitations).
 
 ## 🔬 Experiment Journey
 
-This result came from **34 systematic experiments** across 5 phases.
+This result came from **34 experiments** across 5 phases.
 Full details are in [`docs/experiment_log.md`](docs/experiment_log.md).
 
 | Phase | Experiments | Direction | Outcome |
 |---|---|---|---|
 | 1 | Baseline | mBERT baseline | **56.6%** — reference point |
-| 2 | Exp. 1–9, 15–19 | Multi-task learning (hard sharing + adapters) | All failed; negative transfer confirmed |
-| 3 | Exp. 10, 20–28 | Enhanced single-task (2-layer head, tuning) | **61.49%** peak — marginal gain |
+| 2 | Exp. 1–9, 15–19 | Multi-task learning (hard sharing + adapters) | None beat single-task (negative transfer) |
+| 3 | Exp. 10, 20–28 | Single-task with a 2-layer head + tuning | **61.49%** peak — marginal gain |
 | 4 | Exp. 11–14 | Data-centric: Refined Dataset | **60.6%** — beats all MTL approaches |
 | 5 | Exp. 29–34 | Late Fusion ensemble | **67.15%** — final result |
 
-**The central finding:** After exhausting model-centric approaches (9 multi-task learning
-experiments on the original labels, 10 architecture/hyperparameter experiments), switching to data quality
-improvement produced the largest single jump (+4.0 pp). The ensemble then built on
-that stronger foundation.
+**The central finding:** On the original labels, 9 multi-task experiments and a tuned single-task model
+(Exp. 1–10) all stayed below the 56.6% baseline. Switching to the relabeled data gave the largest
+single jump (+4.0 pp). Architecture tuning on the new data afterwards added less than 1 pp (61.49%),
+and the ensemble built on top of that.
 
 ## ⚡ Reproduction
 
@@ -157,29 +161,40 @@ cd data && python build_refined_dataset.py && cd ..
 <a id="limitations"></a>
 ## ⚠️ Limitations
 
-- **All numbers are on our own validation split.** LinCE does not release test-set labels, so every
-  accuracy in this repo is measured on a stratified 20% validation split, and hyperparameters were also
-  chosen by looking at that validation set.
-- **67.15% evaluates the meta-learner on its own training data.** The MLP meta-learner was trained on the
-  validation-set logits and evaluated on the same set. The logits of that run were later overwritten,
-  so it cannot be re-checked directly. [`docs/experiment_log.md`](docs/experiment_log.md) records that re-running
-  the Experiment 29 settings reproduced 67.15% exactly (with the same evaluation method).
-- **Cross-validated check on a comparable run.** Using the saved logits of Experiment 34 (same
-  architecture, XLM-R lr 2e-5, 6 epochs; 65.71% with the original method), 5-fold stratified CV gives
-  65.17% ± 3.81%. Across 5 fold seeds the gap to the original method is about **0.5–1 pp (0.4–1.1 pp)**.
-  Details: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/).
-- **The ensemble gain comes from training the MLP.** Under CV the ensemble still beats XLM-R solo by about
-  +1–1.5 pp (+1.4 pp at fold seed 42), whereas a simple average of the two models' softmax outputs (62.12%)
-  is *below* XLM-R solo (63.73%).
-- **56.6% and 60.6% are not measured on the identical validation set.** Removing duplicate IDs during
-  refinement changed the dataset, so the baseline uses 1,264 validation samples and the Refined Dataset
-  run uses 1,114.
-- **Small validation set.** With 1,114 validation samples (~223 per fold), fold-to-fold variance is large
-  (standard deviation up to ~3.8 pp).
+I did this project alone — labeling, experiments, and writing — as a second-year undergraduate.
+Looking back, these are the parts that were not good enough, and what I would do differently next time.
+
+- **One main annotator.** I made all 763 corrections myself. For tweets I was unsure about,
+  I asked native Spanish-speaking friends from Mexico, but this was informal — not a systematic
+  second annotation — so there is no agreement score like Cohen's kappa.
+  *Next time:* write the labeling rules down first, have a second annotator label a random
+  sample (100–200 tweets) independently, and report Cohen's kappa.
+- **No held-out test set.** LinCE does not release test-set labels, so every accuracy here is on my own
+  stratified 20% validation split, and I chose hyperparameters by looking at that same split.
+  *Next time:* set aside a test split at the start and use it only once, at the end.
+- **67.15% evaluates the meta-learner on its own training data.** I trained the MLP meta-learner on the
+  validation-set logits and evaluated it on the same set. The logits of that run were later overwritten, so it
+  cannot be re-checked directly ([`docs/experiment_log.md`](docs/experiment_log.md) records that re-running the
+  Exp. 29 settings gave 67.15% again, with the same evaluation method). As a check, I ran 5-fold stratified CV
+  on the saved logits of a comparable run (Exp. 34: same architecture, XLM-R lr 2e-5, 6 epochs; 65.71% with the
+  original method). CV gives 65.17% ± 3.81%, and across 5 fold seeds the original method is about
+  **0.4–1.1 pp too high**. Under CV the ensemble still beats XLM-R alone by about +1–1.5 pp, while a simple average
+  of the two models' softmax outputs (62.12%) is *below* XLM-R alone (63.73%) — so the gain comes from training
+  the MLP. Details: [`experiments/meta_learner_cv/`](experiments/meta_learner_cv/).
+  *Next time:* train the meta-learner with cross-validation from the start, and save the logits of every run.
+- **56.6% and 60.6% are not on the same validation samples.** Removing duplicate IDs during cleaning changed the
+  dataset, so the baseline uses 1,264 validation samples and the Refined Dataset run uses 1,114.
+  *Next time:* fix the split by sample ID before cleaning, so both are compared on the same samples.
+- **Small validation set, single runs.** With 1,114 validation samples (~223 per fold), fold-to-fold standard
+  deviation reaches ~3.8 pp. Most results here are one run with one seed, and some comparisons changed more than
+  one setting at once (Exp. 30 changed the learning rate and the early-stopping metric together). So the
+  "weaker mBERT helps the ensemble" observation (a ~1 pp difference) is within noise.
+  *Next time:* change one thing at a time and report mean ± std over several seeds.
 - **The paper misstates the metric and two ensemble settings.** The paper says it uses weighted F1, but every
   number in it (56.6%, 60.6%, 67.15%) is accuracy, as the notebooks show. Its training settings list mBERT lr 1e-5
   and XLM-R 6 epochs; 1e-5 matches notebooks 01–02, but the 67.15% run (notebook 03) used mBERT lr 5e-6 and
   5 epochs for both models. Weighted F1 shows the same trend (0.56 → 0.61 → 0.65).
+  *Next time:* build the results and settings tables directly from the run logs, not by hand.
 
 ## 📄 Citation
 
